@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+}
+#warnungF,#warnungM{
+    color:red;
+    font-size: medium;
+
+
+}
+#startGame:hover{
+  background-color: #a9a184;
+  color: black;
+  cursor: pointer;
+}
+.error
+{
+  border-style: solid;
+  border-color: red;
+}
+#setDialog{
+  background-color: cornsilk;
+}
+
+
+#information{
+    position: relative;
+    top:50 px;
+    left: 100px;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+    background-color:dimgray;
+    width: 50%;
+    height: 50%d;
+    border: 4px solid whitesmoke;
+    border-radius: 2px;
+    display: none;
+}
+  
+  body {
+    margin: 0;
+    background-size: 100% ;
+    background-image: url("wall wallpaper.jpg");
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    flex-direction: column;
+    color: white;
+  }
+  
+  .title {
+    margin: 20px;
+    position: relative ;
+    font-family: 'Arial Narrow';
+    font-size: 60px;
+    left: -300px;
+    color: rgb(13, 207, 225);
+    
+  }
+  
+  .subtext {
+    color: #CCC;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  
+  }
+  
+  .board {
+    display: inline-grid;
+    padding: 10px;
+    grid-template-columns: repeat(var(--size), 60px);
+    grid-template-rows: repeat(var(--size), 60px);
+    gap: 4px;
+    background-color: chocolate;
+  
+  }
+  
+  .board > * {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 2px solid #BBB;
+    user-select: none;
+    
+  }
+  
+  .board > [data-status="hidden"] {
+    background-color:black ;
+    cursor: pointer;
+
+  
+  }
+  
+ .board > [data-status="mine"]::after {
+    content: "💣";
+  
+  } 
+  
+  .board > [data-status="number"] {
+    background-color: chocolate;
+    font-family:sans-serif;
+    border-style: inset ;
+  }
+  
+
+
+  .board > [data-status="marked"]::after{
+    content: "🚩";
+  }
+ 
+  .button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 30px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+  }
+  .button2 {
+    background-color: gray; 
+    border: none;
+    color: white;
+    padding: 30px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  .button3{
+  background-color: rgb(27, 183, 87); 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    right: 100px;
+    bottom: 150px;
+
+  }
+  .winDialog {
+    background-color: lightgreen; 
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+    
+  }
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+    
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  .loseDialog {
+    background-color: red; 
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+    
+  }
+  input:invalid {
+    background-color: #ffdddd;
+  }
+  
+  form:invalid {
+    border: 5px solid #ffdddd;
+  }
+  
+  input:valid {
+    background-color: #ddffdd;
+  }
+  
+  form:valid {
+    border: 5px solid #ddffdd;
+  }
+  
+  input:required {
+    border-color: #800000;
+    border-width: 3px;
+  }
+  
+  input:required:invalid {
+    border-color: #C00000;
+  }
+
+
+  
+  @keyframes shoot {
+    0% {
+      transform: translate(50vw, 50vh);
+    }
+  }
+  @keyframes fade {
+    to {
+      opacity: 0;
+    }
+  }
+
+
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 600px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: black;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+.close {
+  color: black;
+  float: right;
+  font-size: 1px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.beschreibungDialog{
+font-size: small;
+}
+
+#myBtn{
+  position: fixed; 
+  left: 50px;
+  top: 600px;
+  width: 120px; 
+  height: 30px;
+  font-size: small;
+  background-color: #888;
+  cursor: pointer;
+
+}

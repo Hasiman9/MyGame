@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minesweeper</title>
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="beschreibung" content="width=device-width, initial-scale=1">
+</head>
+  <body>
+    <div id="infomation" style="visibility:hidden;">
+    <h3 id="title" class="title">Minesweeper</h3>
+    <div id="subtext" class="subtext">
+      Mines Left: <span data-mine-count></span>
+    </div>
+    <div id="time">
+      time <span id="timeRemaning">0</span>
+    </div>
+    
+
+    <div id="board" class="board">
+    
+    </div>
+  </div>
+  
+  </body>
+
+    <button id="myBtn">Spiel Beschreibung</button>
+
+
+    <div id="myModal" class="modal">
+    
+     
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="beschreibungDialog">
+      Die Minesweeper-Regeln sind einfach:
+    
+          Das Spiel ist normalerweise beendet, wenn eine Mine aufgedeckt wird. Im Gegensatz zum Windows-Minesweeper ist durch eine Zugrücknahme ein Weiterspielen möglich. Die aufgedeckten Minen werden in einem Zählfeld angezeigt
+      
+          Das Spiel wird fortgesetzt, wenn Sie ein leeres Feld aufdecken.
+      
+          Wird beim Aufdecken eines Feldes eine Zahl angezeigt, steht diese für die Anzahl der Minen, die in den benachbarten 8 Feldern verborgen sind. Anhand dieser Angabe kann abgeleitet werden, unter welchen der angrenzenden Feldern sich Minen befinden und auf welche Felder gefahrlos geklickt werden kann.
+      </p>
+      </div>
+    
+    </div>
+    
+ 
+  <dialog class="winDialog" id="winDialog">
+    <h1 style="position: center; ">you win!!</h1>
+    <button onclick="reset()" class=" button">play again?</button>
+    <button onclick="finish()" class="button2">finish</button>
+    <h4>
+      time = <p id="timeofthegame" style="color:yellow;"></p>
+     </h4>
+     <div class='particle'></div>
+     
+    
+  </dialog>
+  <dialog class="loseDialog" id="loseDialog">
+    <h1 style="position: center; ">you lost!!</h1>
+    <button onclick="reset()" class=" button">play again?</button>
+    <button onclick="finish()" class="button2">finish</button>
+    <h4>
+      time = <p id="timeofthegame2" style="color:yellow;"></p>
+     </h4>
+    
+         
+  </dialog>
+
+  <dialog open id="setDialog">
+    <legend> <b>Benutzer Eingabe</b></legend>
+    Geben Sie die Größe des Felds ein 
+  <input id="feld" type="number" min="1" max="10" required/>
+  <div id="warnungF"> </div> 
+  <br>
+    Geben Sie Anzahl der Mienen ein     
+    <input id="mienenAnzahl" type="number" min="1" max="60" required/><br>
+    <div id="warnungM"> </div> 
+          
+ 
+   <br><button id="startGame" onclick="startGame()">Starten</button>
+    
+  </dialog>
+  
+  <button onclick="startAgain()" id="button3" class="button3" style="visibility:hidden" >reset</button>
+  <script>
+    var finished=true
+  function reset() {
+
+   
+    const boardElement = document.querySelector(".board")
+    while (boardElement.hasChildNodes()) {
+      boardElement.removeChild(boardElement.firstChild);
+    }
+    document.location.reload(true)
+      }
+  function finish(){
+    window.close() 
+  }
+  
+  function startAgain() {
+      const boardElement = document.querySelector(".board");
+      while (boardElement.hasChildNodes()) {
+        boardElement.removeChild(boardElement.firstChild);
+      }
+      document.location.reload(true)
+    }
+
+var modal = document.getElementById("myModal");
+
+
+var btn = document.getElementById("myBtn");
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+btn.onclick = function () {
+  modal.style.display = "block";
+};
+
+
+span.onclick = function () {
+  modal.style.display = "none";
+};
+
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+    </script>
+</html>
